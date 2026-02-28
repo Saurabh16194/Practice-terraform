@@ -13,3 +13,11 @@ output "cluster_ca" {
 output "node_group_role_arn" {
   value = aws_iam_role.node_group.arn
 }
+
+output "oidc_provider_arn" {
+  value = aws_iam_openid_connect_provider.eks.arn
+}
+
+output "oidc_issuer_url" {
+  value = data.aws_eks_cluster.this.identity[0].oidc[0].issuer
+}
